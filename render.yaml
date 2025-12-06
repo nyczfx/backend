@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: studdy-backend
+    env: node
+    rootDir: ./
+    buildCommand: "npm install"
+    startCommand: "node server.js"
+    plan: free
+    envVars:
+      - key: PORT
+        value: 10000
+    runtime: 
+      nodeVersion: "18.x"
