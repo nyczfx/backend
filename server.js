@@ -132,5 +132,7 @@ app.post("/wa/clear-session", (req, res) => {
 // ----------------------------
 // START SERVER
 // ----------------------------
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`🔥 Backend rodando na porta ${PORT}`));
+
+
