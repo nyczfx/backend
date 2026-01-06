@@ -1,15 +1,21 @@
 // ----------------------------
-// IMPORTS E POLYFILL DE CRYPTO
+// IMPORTS
 // ----------------------------
-const crypto = require("crypto");
-globalThis.crypto = crypto.webcrypto || crypto;
-
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
 const multer = require("multer");
 
+// ----------------------------
+// POLYFILL CRYPTO PARA BAILEYS
+// ----------------------------
+const crypto = require("crypto");
+globalThis.crypto = crypto.webcrypto || crypto;
+
+// ----------------------------
+// BOT
+// ----------------------------
 const bot = require("./bot");
 
 // ----------------------------
