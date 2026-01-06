@@ -1,3 +1,9 @@
+// ----------------------------
+// IMPORTS E POLYFILL DE CRYPTO
+// ----------------------------
+const crypto = require("crypto");
+globalThis.crypto = crypto.webcrypto || crypto;
+
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
