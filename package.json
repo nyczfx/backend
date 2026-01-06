@@ -4,12 +4,14 @@
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "^6.7.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    "multer": "^2.0.2",
     "qrcode": "^1.5.4"
   },
   "engines": {
