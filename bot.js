@@ -85,6 +85,9 @@ async function startBot() {
   });
 }
 
+// --------------------------
+// FUNÇÕES DE ENVIO
+// --------------------------
 function getQRCodeDataURL() {
   return qrCodeDataURL;
 }
@@ -98,20 +101,24 @@ async function sendText(number, text) {
   return await sock.sendMessage(jid, { text });
 }
 
-async function sendImage(number, filePath, caption = "") {
+async function sendImage(number, fileUrl, caption = "") {
   const jid = number.replace(/\D/g, "") + "@s.whatsapp.net";
   return await sock.sendMessage(jid, {
-    image: { url: filePath },
+    image: { url: fileUrl }, // ✅ suporta URL externa
     caption
   });
 }
 
-async function sendAudioFile(number, filePath) {
+// 🔥 Ajustado para URL externa
+async function sendAudioFile(number, fileUrl) {
   const jid = number.replace(/\D/g, "") + "@s.whatsapp.net";
+
+  console.log("▶ Enviando áudio para:", number, "->", fileUrl);
+
   return await sock.sendMessage(jid, {
-    audio: { url: filePath },
-    mimetype: "audio/mp4",
-    ptt: true
+    audio: { url: fileUrl },   // ✅ usa URL externa em vez de path local
+    mimetype: "audio/ogg",     // ✅ formato compatível com WhatsApp
+    ptt: true                  // ✅ mantém PTT
   });
 }
 
